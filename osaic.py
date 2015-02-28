@@ -282,7 +282,7 @@ class ImageWrapper(object):
             try:
                 if self.filename.startswith("http://") or self.filename.startswith("https://"):
                     import urllib, cStringIO
-                    file = cStringIO.StringIO(urllib.urlopen(URL).read())
+                    file = cStringIO.StringIO(urllib.urlopen(self.filename).read())
                     self.blob = Image.open(file)
                 else:
                     self.blob = Image.open(self.filename)
