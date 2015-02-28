@@ -280,7 +280,12 @@ class ImageWrapper(object):
         self.blob = kwargs.pop('blob', None)
         if self.blob is None:
             try:
-                self.blob = Image.open(self.filename)
+                if self.filename.startswith("http://") or self.filename.startswith("https://"):
+                    import urllib, cStringIO
+                    file = cStringIO.StringIO(urllib.urlopen(URL).read())
+                    self.blob = Image.open(file)
+                else:
+                    self.blob = Image.open(self.filename)
             except IOError:
                 raise
 
