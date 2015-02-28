@@ -1,4 +1,11 @@
 =====
+Original
+=====
+This code was cloned from  
+   https://bitbucket.org/iamFIREcracker/osaic
+and ported the code to use the PILLOW (by changing one line). So feel free to cite the original. 
+
+=====
 osaic
 =====
 
