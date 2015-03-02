@@ -169,8 +169,8 @@ def average_color(img):
     separate counters.
 
     """
-    print(img)
-    print(img.__dict__)
+    # print(img)
+    # print(img.__dict__)
     (width, height) = img.size
     num_pixels = width * height
     (total_red, total_green, total_blue) = (0, 0, 0)
@@ -379,10 +379,12 @@ class ImageList(object):
         self._img_list = dict()
 
         for img in images:
-            color = average_color(img)
-            qcolor = quantize_color(color)
-            self._img_list.setdefault(qcolor, list()).append((color,
-                                                              img.filename))
+            try:
+                color = average_color(img)
+                qcolor = quantize_color(color)
+                self._img_list.setdefault(qcolor, list()).append((color,img.filename))
+            except:
+                pass
 
     def search(self, color):
         """Search the most similar image in terms of average color."""
