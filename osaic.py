@@ -169,6 +169,8 @@ def average_color(img):
     separate counters.
 
     """
+    # print(img)
+    print(img.__dict__)
     (width, height) = img.size
     num_pixels = width * height
     (total_red, total_green, total_blue) = (0, 0, 0)
