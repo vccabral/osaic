@@ -384,7 +384,7 @@ class ImageList(object):
                 qcolor = quantize_color(color)
                 self._img_list.setdefault(qcolor, list()).append((color,img.filename))
             except:
-                pass
+                print("failed some how: "+str(img))
 
     def search(self, color):
         """Search the most similar image in terms of average color."""
